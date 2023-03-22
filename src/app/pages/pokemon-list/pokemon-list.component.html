@@ -1,0 +1,8 @@
+<div class="pokemons-container">
+    <app-pokemon-item 
+        *ngFor="let pokemon of pokemons"
+        [imgUrl]="pokemon.imgUrl"
+        [name]="pokemon.name"
+        [types]="pokemon.types">
+    </app-pokemon-item>
+</div>

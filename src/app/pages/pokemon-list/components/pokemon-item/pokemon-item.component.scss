@@ -1,0 +1,26 @@
+.pokemon-container {
+    display: flex;
+    flex-direction: column;
+    border: #ccc 1px solid;
+    border-radius: 2rem;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    &__img {
+        width:28rem; 
+        height:28rem;
+    
+        @media (min-width: 768px) {
+            width:37.5rem; 
+            height:37.5rem;
+        }
+    }
+
+    &__name {
+        font-size: 1.6rem;
+    }
+    
+    &__types {
+        font-size: 1.4rem;
+    }
+}

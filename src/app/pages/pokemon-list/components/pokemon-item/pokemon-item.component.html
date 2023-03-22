@@ -1,0 +1,5 @@
+<div class="pokemon-container">
+    <img class="pokemon-container__img" [src]="imgUrl" [alt]="name">
+    <strong class="pokemon-container__name">{{ name | uppercase }}</strong>
+    <p class="pokemon-container__types">Type(s): {{ types | titlecase }}</p>
+</div>
