@@ -1,0 +1,33 @@
+.header-container {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.5rem; 
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+    @media (min-width: 768px) {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 2.5fr 2fr;
+    }
+
+    &__title {
+        font-size: 3rem;
+        @media (min-width: 768px) {
+            justify-self: end;
+        }
+    }
+    &__btn {
+        justify-self: end;
+        background-color: rgb(255, 71, 71, .9);
+        border: 2px solid rgba(255, 71, 71, 1);
+        color: white;
+        border-radius: 1rem;
+        padding: .5rem;
+        cursor: pointer;
+    }
+    
+}

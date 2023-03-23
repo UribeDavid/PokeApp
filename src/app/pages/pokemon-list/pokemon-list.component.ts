@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FooterService } from 'src/app/services/footer.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
@@ -8,11 +9,20 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonListComponent implements OnInit {
   pokemons:any[] = [];
+  isMarginBottomAdded: boolean = false;
 
-  constructor( private pokemonService: PokemonService ) { }
+  constructor( private pokemonService: PokemonService,
+               private footerService: FooterService ) { }
 
   ngOnInit() {
     this.definePokemons();
+    this.getFooterState();
+  }
+
+  getFooterState() {
+    this.footerService.getFooterState().subscribe((isVisible:boolean) =>{
+      this.isMarginBottomAdded = isVisible;
+    })
   }
 
   definePokemons() {

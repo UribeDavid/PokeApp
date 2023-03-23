@@ -1,0 +1,13 @@
+<footer class="footer-container" *ngIf="isVisible">
+    <img 
+        class="footer-container__image"
+        [src]="pokemonDetails?.imgUrl" 
+        [alt]="pokemonDetails?.name">
+    <section class="footer-container__stats">
+        <span 
+            class="footer-container__stats__stat"
+            *ngFor="let stat of pokemonDetails?.stats">
+            <strong>{{ stat?.name | titlecase }}:</strong> <p>{{ stat?.base }}</p>
+        </span>
+    </section>
+</footer>

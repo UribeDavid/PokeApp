@@ -1,5 +1,8 @@
 .pokemons-container {
-    padding: 2rem;
+    &--mb {
+        margin-bottom: 31rem;
+    }
+    padding: 1.5rem;
     display: grid;
     place-items: center;
     grid-template-columns: 1fr;

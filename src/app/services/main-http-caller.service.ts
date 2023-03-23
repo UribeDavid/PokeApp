@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,8 +9,8 @@ export class MainHttpCallerService {
 
   constructor( private http: HttpClient ) {}
 
-  get(url:string):Observable<any> {
-    return this.http.get(url);
+  get(url:string, params?:HttpParams):Observable<any> {
+    return this.http.get(url, {params});
   }
 
 }

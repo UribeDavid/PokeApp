@@ -1,8 +1,10 @@
-<div class="pokemons-container">
+<div 
+    [ngClass]="{
+        'pokemons-container':true,
+        'pokemons-container--mb': isMarginBottomAdded
+    }">
     <app-pokemon-item 
         *ngFor="let pokemon of pokemons"
-        [imgUrl]="pokemon.imgUrl"
-        [name]="pokemon.name"
-        [types]="pokemon.types">
+        [pokemon]="pokemon">
     </app-pokemon-item>
 </div>

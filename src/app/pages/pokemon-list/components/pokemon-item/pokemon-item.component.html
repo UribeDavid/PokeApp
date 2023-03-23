@@ -1,5 +1,5 @@
 <div class="pokemon-container">
-    <img class="pokemon-container__img" [src]="imgUrl" [alt]="name">
-    <strong class="pokemon-container__name">{{ name | uppercase }}</strong>
-    <p class="pokemon-container__types">Type(s): {{ types | titlecase }}</p>
+    <img (click)="onSelected()" class="pokemon-container__img" [src]="pokemon?.imgUrl" [alt]="pokemon?.name">
+    <strong (click)="onSelected()" class="pokemon-container__name">{{ pokemon?.name | uppercase }}</strong>
+    <p class="pokemon-container__types">Type(s): {{ pokemon?.types | titlecase }}</p>
 </div>
