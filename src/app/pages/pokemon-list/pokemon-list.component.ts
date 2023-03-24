@@ -47,6 +47,7 @@ export class PokemonListComponent implements OnInit {
   }
 
   setSelect(id:string) {
+    if (this.pokemonsSelected.includes(id)) return;
     this.pokemonsSelected.push(id);
     if ( this.pokemonsSelected.length > 2 ) this.pokemonsSelected.shift();
     this.pokemons.forEach(pokemon => 
