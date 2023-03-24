@@ -1,4 +1,4 @@
-<footer class="footer-container" *ngIf="isVisible">
+<footer [class]="'footer-container bg-'+pokemonDetails.firstType" *ngIf="isVisible">
     <img 
         class="footer-container__image"
         [src]="pokemonDetails?.imgUrl" 

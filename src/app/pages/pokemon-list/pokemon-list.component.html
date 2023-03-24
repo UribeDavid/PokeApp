@@ -4,7 +4,8 @@
         'pokemons-container--mb': isMarginBottomAdded
     }">
     <app-pokemon-item 
-        *ngFor="let pokemon of pokemons"
+        *ngFor="let pokemon of pokemons; index as i"
+        (click)="setSelect(pokemon.id)"
         [pokemon]="pokemon">
     </app-pokemon-item>
 </div>

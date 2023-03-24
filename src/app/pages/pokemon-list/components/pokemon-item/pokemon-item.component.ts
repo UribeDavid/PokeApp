@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon';
 import { FooterService } from 'src/app/services/footer.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { FooterService } from 'src/app/services/footer.service';
   styleUrls: ['./pokemon-item.component.scss']
 })
 export class PokemonItemComponent {
-  @Input() pokemon:any = {};
+  @Input() pokemon!:Pokemon;
 
   constructor( private footerService: FooterService ) {}
 

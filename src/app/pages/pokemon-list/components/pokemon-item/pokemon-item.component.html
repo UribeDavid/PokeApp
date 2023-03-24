@@ -1,5 +1,10 @@
-<div class="pokemon-container">
+<div [class]="'pokemon-container bg-'+pokemon?.firstType"
+    [ngClass]="{
+        'pokemon-container--shake': pokemon?.isSelected
+    }">
     <img (click)="onSelected()" class="pokemon-container__img" [src]="pokemon?.imgUrl" [alt]="pokemon?.name">
-    <strong (click)="onSelected()" class="pokemon-container__name">{{ pokemon?.name | uppercase }}</strong>
-    <p class="pokemon-container__types">Type(s): {{ pokemon?.types | titlecase }}</p>
+    <strong (click)="onSelected()" class="pokemon-container__name">{{ pokemon?.name | titlecase }}</strong>
+    <div class="pokemon-container__types">
+        <p *ngFor="let type of pokemon?.types" class="pokemon-container__types__type">{{ type | titlecase }}</p>
+    </div>
 </div>

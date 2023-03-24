@@ -1,6 +1,9 @@
 .pokemons-container {
     &--mb {
-        margin-bottom: 31rem;
+        margin-bottom: 33rem;
+        @media (min-width: 768px) {
+            margin-bottom: 25rem;
+        }
     }
     padding: 1.5rem;
     display: grid;
@@ -12,7 +15,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
     
-    @media (min-width: 1200px) {
+    @media (min-width: 1300px) {
         grid-template-columns: repeat(3, 1fr);
     }
 }

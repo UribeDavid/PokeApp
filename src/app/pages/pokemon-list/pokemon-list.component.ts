@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon';
+import { TypeApi } from 'src/app/models/type-api';
 import { FooterService } from 'src/app/services/footer.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -8,8 +10,9 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./pokemon-list.component.scss']
 })
 export class PokemonListComponent implements OnInit {
-  pokemons:any[] = [];
+  pokemons:Pokemon[] = [];
   isMarginBottomAdded: boolean = false;
+  pokemonsSelected:string[] = [];
 
   constructor( private pokemonService: PokemonService,
                private footerService: FooterService ) { }
@@ -33,11 +36,21 @@ export class PokemonListComponent implements OnInit {
             name: response.name,
             id: response.id,
             imgUrl: response.sprites.other.dream_world.front_default,
-            types: response.types.map((type:any) => type.type.name).join(', ')
+            firstType: response.types[0].type.name,
+            types: response.types.map((type:TypeApi) => type.type.name),
+            isSelected: false
           }
           this.pokemons.push(pokemon);
         });
       })
     });
+  }
+
+  setSelect(id:string) {
+    this.pokemonsSelected.push(id);
+    if ( this.pokemonsSelected.length > 2 ) this.pokemonsSelected.shift();
+    this.pokemons.forEach(pokemon => 
+      pokemon.isSelected = this.pokemonsSelected.includes(pokemon.id)
+    );
   }
 }

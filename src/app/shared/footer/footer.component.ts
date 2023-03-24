@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/models/pokemon';
+import { PokemonDetail } from 'src/app/models/pokemon-detail';
+import { StatApi } from 'src/app/models/stat-api';
 import { FooterService } from 'src/app/services/footer.service';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
@@ -9,7 +12,7 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class FooterComponent implements OnInit {
 
-  pokemonDetails:any = null;
+  pokemonDetails!:PokemonDetail;
   isVisible: boolean = false;
 
   constructor( private footerService: FooterService,
@@ -27,14 +30,14 @@ export class FooterComponent implements OnInit {
   }
 
   getPokemon(): void {
-    this.footerService.getPokemonDetail().subscribe((pokemon:any) => {
+    this.footerService.getPokemonDetail().subscribe((pokemon:Pokemon) => {
       if ( pokemon ) {
-        this.pokemonService.getPokemonStats(pokemon?.id).subscribe( (stats:any) => {
+        this.pokemonService.getPokemonStats(pokemon?.id).subscribe( (apiStats:StatApi[]) => {
           this.pokemonDetails = {
             ...pokemon,
-            stats: stats.map((stat:any) => ({
+            stats: apiStats.map((stat:StatApi) => ({
               name: stat.stat.name,
-              base: stat.base_stat,
+              base: stat.base_stat.toString(),
             }))
           }
           this.footerService.setFooterState(true);
